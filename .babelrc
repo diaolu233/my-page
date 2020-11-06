@@ -1,0 +1,25 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "@/components": "./components",
+            "@/constants": "./constants",
+            "@/pages": "./pages",
+            "@/public": "./public",
+            "@/reducers": "./reducers",
+            "@/utils": "./utils",
+            "@/services":"./services",
+            "@/imge":"./images"
+          }
+        }
+        
+      ],
+      [
+        "styled-components", 
+        { "ssr": true }
+      ]
+    ]
+  }
