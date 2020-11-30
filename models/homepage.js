@@ -5,10 +5,12 @@ const model = {
   state: {
     pathname: '/rrrr',
     locale:"",
-    isMobile:"true"
+    isMobile:"true",
+    account:""
   },
   reducers: {
     updateState(state, { payload }) {
+      console.log(1)
       return {
         ...state,
         ...payload,
@@ -22,7 +24,7 @@ const model = {
     },
     *getUserCountry({},{ call,put}){
       const data = yield call(getUserCountry)
-      // console.log(1)
+      console.log(1)
       if(data.code === "SUCCESS"){
         data.data === 'cn'
         ?yield put({

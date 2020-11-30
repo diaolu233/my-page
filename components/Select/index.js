@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
+import PropTypes from 'prop-types';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -42,4 +42,9 @@ export default function SimpleSelect(props) {
       </FormControl>
     </div>
   );
+}
+
+SimpleSelect.propTypes = {
+  coin:PropTypes.string,
+  selectCoin:PropTypes.func
 }

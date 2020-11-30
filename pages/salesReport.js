@@ -12,7 +12,9 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
-export default class Salesreport extends React.Component {
+import { connect } from 'react-redux';
+// import WithDva from '../utils/store';
+ class Salesreport extends React.Component {
   
 
   state={
@@ -26,6 +28,12 @@ export default class Salesreport extends React.Component {
       coin:'btc',
       startTime:'1',
       endTime:'1'
+  }
+ async  componentDidMount(){
+  //  console.log(this.props)
+   await  this.props.dispatch({
+      type: 'index/getUserCountry'
+    })
   }
   createExcel = async () =>{
     excel()
@@ -51,7 +59,10 @@ export default class Salesreport extends React.Component {
     })
   }
   search = () => {
-     console.log(1)
+    //  console.log(1)
+     this.props.dispatch({
+      type: 'index/getUserCountry'
+    })
   }
 
   
@@ -80,3 +91,9 @@ export default class Salesreport extends React.Component {
     )
   }
 }
+export default connect(({index}) => {
+  return {
+    index
+  };
+})(Salesreport);
+// export default WithDva((state) => { return { index: state.index }; })(Salesreport);
